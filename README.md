@@ -16,8 +16,8 @@
 ### How can I test OCT image?
 1. Download all files from github
 2. You can download weight file here: <br/>
-   a. Zeiss model: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ <br/>
-   b. Topcon model: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ <br/>
+   a. Zeiss model: https://drive.google.com/file/d/1kQquiJ18zkrzsWsfLyALsdNI3_D9N4EJ/view?usp=sharing <br/>
+   b. Topcon model: https://drive.google.com/file/d/14NsTiurh30967hkJDfbROvtz3LP-E43N/view?usp=sharing <br/>
 3. Open ShowTest.py
 4. Modify "Setup"
 ```python
