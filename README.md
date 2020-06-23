@@ -32,8 +32,8 @@ vf_sheet_name = "Sheet1"
 pid_col = 0  # patients' ID column number (min = 0)
 vf_thv_col = 115  # THV starting column number (min = 0)
 
-weight_file_zeiss = "/Weights/InceptionResnet/InceptionResnet_24-2-improvement-324-3.86-60.94.hdf5"
-weight_file_topcon = "/Weights/SSOCT_InceptionResnet_24-2-improvement-04-9.39-56.34.hdf5"
+weight_file_zeiss = "/Weights/InceptionResnet_24-2_SD_OCT.hdf5"
+weight_file_topcon = "/Weights/InceptionResnet_SS_OCT.hdf5"
 # ===========================================================================================
 ```
 5. Run ShowTest.py;
