@@ -15,9 +15,9 @@
 
 ### How can I test OCT image?
 1. Download all files from github
-2. You can download weight file here:
-   Zeiss model: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ
-   Topcon model: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ
+2. You can download weight file here: <br/>
+   Zeiss model: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ <br/>
+   Topcon model: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ <br/>
 3. Open ShowTest.py
 4. Modify "Setup"
 ```python
@@ -38,7 +38,7 @@ weight_file_topcon = "/Weights/SSOCT_InceptionResnet_24-2-improvement-04-9.39-56
 ```
 5. Run TestModel.py;
 6. You can see the popup window like below.
-![](https://github.com/climyth/VFbySD-OCT/blob/master/example/TestWindow.JPG?raw=true)
+![](https://github.com/climyth/VFbySD-OCT/blob/master/TestImages/test_example.JPG?raw=true)
 
 ### How can I make "combined OCT" image?
 1. Download "panomaker.exe" in "utils" folder
