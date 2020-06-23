@@ -41,20 +41,11 @@ weight_file_topcon = "/Weights/SSOCT_InceptionResnet_24-2-improvement-04-9.39-56
 ![](https://github.com/climyth/VFbyOCT-Comparison/blob/master/TestImages/test_example.JPG?raw=true)
 
 ### How can I make "combined OCT" image?
-1. Download "panomaker.exe" in "utils" folder
-2. In utils folder, there are sample OCT images to generate combined OCT image.<br/>
-   You need 2 OCT images in pair like below. (1) macular OCT (2) ONH OCT<br/>
-   ![](https://github.com/climyth/VFbySD-OCT/blob/master/example/oct_example.jpg?raw=true)
-   <br/>
-3. Image file name must follow the rule:<br/>
-   (1) macular OCT: patientID_examdate_1.jpg  (ex. 012345678_20180403_1.jpg)<br/>
-   (2) ONH OCT: patientID_examdate_2.jpg   (ex. 012345678_20180403_2.jpg)<br/>
-   Note: Two images must have the same name (the only difference is last number _1 or _2)
-4. Run "panomaker.exe"<br/><br/>
-![](https://github.com/climyth/VFbySD-OCT/blob/master/example/panomaker.png?raw=true)
-<br/><br/>
-5. set source folder and output folder
-6. press Start button. That's it!
+1. To make Zeiss combined OCT image, please visit <br/>
+   https://github.com/climyth/VFbySD-OCT
+   
+2. To make Topcon combined OCT iamge, please visit <br/>
+   https://github.com/climyth/VFbySS-OCT
 
 ### How can I train model with my own OCT images?
 1. Prepare your own OCT images and visual field data (excel file)
@@ -64,21 +55,23 @@ weight_file_topcon = "/Weights/SSOCT_InceptionResnet_24-2-improvement-04-9.39-56
    (2) the first column must contain the list of image file names <br/>
    (3) visual field total threshold values must begin at 7th column by default (otherwise, you need to modify "LoadData") <br/>
    (4) There must be 54 columns of total threshold values (includes two physiologic scotoma point).
-4. Modify 'Setup' in VFOCT_Train.py
+4. Modify 'Setup' in Train.py
 ```python
 # Setup ====================================================================
-image_folder = ""   # root image folder for train set (combined OCT images)
-vf_file = "VFTrain.xlsm"   # visual field data excel file
-weight_save_folder = "Weights"
-graph_save_folder = ""   # model graph output folder
-pretrained_weights = ""   # if no pretrained weight, just leave ""
-tensorboard_log_folder = "logs"
+vf_select = "24-2"  # 24-2 or 10-2
+base_model_name = "InceptionResnet"   # ResNet, InceptionV3, VGG19, DenseNet, NASNet, InceptionResnet
+
+oct_type = "zeiss"  # zeiss or topcon
+base_folder = "Z:/VFPredict"
+vf_file = "/SD_Train.xlsm"
+weight_save_folder = "/Weights/" + base_model_name
+graph_save_folder = ""
+pretrained_weights = ""   # if not exist, leave ""
+tensorboard_log_folder = "/Logs"
 # ==========================================================================
 ```
-5. Run the VFOCT_Train.py
+5. Run the Train.py
 6. You can monitor loss trend in tensorboard. This is our trend curve for example.<br/><br/>
-![](https://github.com/climyth/VFbySD-OCT/blob/master/example/train_log_1.jpg?raw=true)
-<br/><br/>
 7. To prevent overfitting, we used "repeated random sub-sampling cross validation method". To do this, just repeat to run VFOCT_Train.py. In each run, you can set "pretrained_weights" to continue the training from last weight file.
 
 
