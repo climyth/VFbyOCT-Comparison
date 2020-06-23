@@ -72,7 +72,7 @@ tensorboard_log_folder = "/Logs"
 ```
 5. Run the Train.py
 6. You can monitor loss trend in tensorboard. This is our trend curve for example.<br/><br/>
-7. To prevent overfitting, we used "repeated random sub-sampling cross validation method". To do this, just repeat to run VFOCT_Train.py. In each run, you can set "pretrained_weights" to continue the training from last weight file.
+7. To prevent overfitting, we used "repeated random sub-sampling cross validation method". To do this, just repeat to run Train.py. In each run, you can set "pretrained_weights" to continue the training from last weight file.
 
 
 ### For Research Use Only
