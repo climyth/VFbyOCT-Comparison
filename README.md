@@ -1,6 +1,6 @@
 # VFbyOCT : OCT device comparison (SD-OCT vs SS-OCT)
 
-![](https://github.com/climyth/VFbySD-OCT/blob/master/example/FigExamplpes.jpg?raw=true)
+![](https://github.com/climyth/VFbyOCT-Comparison/blob/master/title.jpg?raw=true)
 
 ### Features
 - Inception V3 backboned deep learning model
