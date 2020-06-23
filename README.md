@@ -1,13 +1,12 @@
 # VFbyOCT : OCT device comparison (SD-OCT vs SS-OCT)
 
-![](https://github.com/climyth/VFbyOCT-Comparison/blob/master/title.png?raw=true)
+![](https://github.com/climyth/VFbyOCT-Comparison/blob/master/title.jpg?raw=true)
 
 ### Features
-- Inception V3 backboned deep learning model
-- Predicts Humphrey's visual field 24-2 total threshold values from Zeiss SD-OCT
+- InceptionResnet V2 backboned deep learning model
+- Predicts Humphrey's visual field 24-2 total threshold values from Zeiss SD-OCT or Topcon SS-OCT
 - Predicts entire picture of visual field
-- Uses combined OCT images (macula scan + ONH scan);
-- Mean prediction error is 4.79 dB
+- Mean prediction error is 5.29 dB (Zeiss) and 4.51 dB (Topcon)
 
 ### Prerequisites
 - python 3.6
@@ -16,17 +15,25 @@
 
 ### How can I test OCT image?
 1. Download all files from github
-2. You can download weight file here: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ
-3. Open TestModel.py
+2. You can download weight file here:
+   Zeiss model: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ
+   Topcon model: https://drive.google.com/open?id=1MEBzcT6MG9OfFdot_6mwhnIPsHdjVCnQ
+3. Open ShowTest.py
 4. Modify "Setup"
 ```python
 # Setup ====================================================================================
-image_file = "testset/OCT016.jpg"  # combined OCT image
-vf_file = "testset/VFTest.xlsm"   # ground truth visual field file
-vf_sheet = "Test"  # data sheet in excel file
-oct_filename_col = 0   # column number of OCT filename (minimum = 0)
-thv_start_col = 6   # column number where THV values start (minimum = 0)
-weight_file = "weights/inceptionV3FinalTrained.hdf5"  # trained model
+base_folder = "Z:/VFPredict"
+
+zeiss_oct_image = "/TestImages/PT01_Zeiss.jpg"  # file name must starts with 'pid_' ex) "PT001_Zeiss.jpg"
+topcon_oct_image = "/TestImages/PT01_Topcon.jpg"  # file name must starts with 'pid_' ex) "PT001_Topcon.jpg"
+
+vf_file = "/TestImages/test_data_github.xlsm"
+vf_sheet_name = "Sheet1"
+pid_col = 0  # patients' ID column number (min = 0)
+vf_thv_col = 115  # THV starting column number (min = 0)
+
+weight_file_zeiss = "/Weights/InceptionResnet/InceptionResnet_24-2-improvement-324-3.86-60.94.hdf5"
+weight_file_topcon = "/Weights/SSOCT_InceptionResnet_24-2-improvement-04-9.39-56.34.hdf5"
 # ===========================================================================================
 ```
 5. Run TestModel.py;
